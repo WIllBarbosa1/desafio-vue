@@ -1,69 +1,23 @@
 <template>
   <div class="container">
+    <h2>Que tecnologias você conhece?</h2>
+    <span>Insira abaixo suas informações pessoais de contato</span>
     <div class="content">
-      <h2>Que tecnologias você conhece?</h2>
-      <ul class="list">
-        <li :class="{ active: isActive }" @click="switchCss()" key="1">
-          <img
-            class="logo"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
-            alt="JavaScript"
-          />
-          <span v-if="isActive">Ativo</span>
-        </li>
-        <li key="2">
-          <img
-            class="logo"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg"
-            alt="JavaScript"
-          />
-        </li>
-        <li key="3">
-          <img
-            class="logo"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original-wordmark.svg"
-            alt="JavaScript"
-          />
-        </li>
-        <li key="4">
-          <img
-            class="logo"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg"
-            alt="JavaScript"
-          />
-        </li>
-        <li key="5">
-          <img
-            class="logo"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg"
-            alt="JavaScript"
-          />
-        </li>
-        <li key="6">
-          <img
-            class="logo"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original-wordmark.svg"
-            alt="JavaScript"
-          />
-        </li>
-      </ul>
+      <TecList />
     </div>
   </div>
 </template>
 
 <script>
+import TecList from "../TecList";
+
 export default {
   name: "StepTwo",
   data() {
-    return {
-      isActive: false,
-    };
+    return {};
   },
-  methods: {
-    switchCss() {
-      this.isActive = !this.isActive;
-      //   alert("Teste");
-    },
+  components: {
+    TecList,
   },
 };
 </script>
@@ -72,51 +26,38 @@ export default {
 .container {
   height: 91.5vh;
   width: 100%;
-  padding: 20px;
-  background-color: #8b8b8b;
+  font-size: 1.4rem;
+  padding: 50px 0;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-direction: column;
+  color: #0a0a0a;
+  background-color: #e0e0e0;
+}
+
+.container > span {
+  color: #8f8f8f;
 }
 
 .content {
-  width: 60%;
-  height: 90%;
-  padding: 20px;
-  background-color: #b1b1b1;
-}
-
-.list {
+  min-height: 50%;
+  width: 80%;
+  margin-top: 3%;
+  overflow-y: scroll;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-evenly;
-  list-style: none;
-  padding: 5% 0;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-.list li {
-  width: 30%;
-  margin: 20px 0;
-  padding: 10px;
-  text-align: left;
-  background-color: #8b8b8b;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 3px solid #8b8b8b;
+.content::-webkit-scrollbar {
+  background: #b8b8b8;
+  width: 0.5vw;
+  border-radius: 20px;
 }
 
-li:hover {
-  cursor: pointer;
-}
-
-.logo {
-  width: 30%;
-}
-
-li.active {
-  border: 3px solid chartreuse;
+.content::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #31969c;
 }
 </style>
