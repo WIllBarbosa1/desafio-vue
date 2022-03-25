@@ -24,20 +24,29 @@ export default {
 
 <style scoped>
 .container {
+  --active-color: #37a1a2;
+  --desabled-color: #d7d7d7;
+  --background: #ffffff;
+  --scrollbar-color: #37a2a1;
+  --scrollbar-background-color: #ebebeb;
+  --shaders: #d7d7d7;
+  --borders: #d7d7d7;
+}
+
+.container {
   height: 91.5vh;
   width: 100%;
   font-size: 1.4rem;
   padding: 50px 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
-  color: #0a0a0a;
-  background-color: #e0e0e0;
+  background-color: var(--background);
 }
 
 .container > span {
-  color: #8f8f8f;
+  color: var(--desabled-color);
 }
 
 .content {
@@ -51,13 +60,13 @@ export default {
 }
 
 .content::-webkit-scrollbar {
-  background: #b8b8b8;
+  background: var(--scrollbar-background-color);
   width: 0.5vw;
   border-radius: 20px;
 }
 
 .content::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: #31969c;
+  background: var(--scrollbar-color);
 }
 </style>

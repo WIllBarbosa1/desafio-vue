@@ -1,28 +1,37 @@
 <template>
   <div class="container">
-    <h2>Como conseguiremos falar com você depois?</h2>
-    <span>Insira abaixo suas informações pessoais de contato</span>
+    <h2>Parabéns! Todas as informações foram enviadas para nosso time!</h2>
+    <span>Agora você esta pronto para a próxima etapa, sucesso!</span>
     <div class="content">
-      <div class="inputs-wrapper">
-        <input type="text" placeholder="Seu nome" class="input1" />
-        <input type="text" placeholder="Email" class="input2" />
-        <input type="text" placeholder="Telefone" class="input3" />
-      </div>
+      <img class="image" :src="finish" alt="feito" />
     </div>
+    <h2>Esteja preparado para os próximos desafios.</h2>
+    <span
+      >Você pode acessar nosso contéudo exclusivo para novos integrantes
+      clicando no botão abaico!</span
+    >
+    <a class="material-link" href="#" target="_blank">Acessar material!</a>
   </div>
 </template>
 
 <script>
+import finish from "../../assets/images/Finish.png";
+
 export default {
-  name: "StepOne",
+  name: "StepThree",
+  data() {
+    return {
+      finish,
+    };
+  },
 };
 </script>
 
 <style scoped>
 .container {
-  --active-color: #37a1a2;
   --desabled-color: #d7d7d7;
   --background: #ffffff;
+  --background-button: #37a2a1;
   --scrollbar-color: #37a2a1;
   --scrollbar-background-color: #ebebeb;
   --shaders: #d7d7d7;
@@ -33,7 +42,7 @@ export default {
   height: 91.5vh;
   width: 100%;
   font-size: 1.4rem;
-  margin-top: 8%;
+  padding: 50px 0;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -45,8 +54,13 @@ export default {
   color: var(--desabled-color);
 }
 
+.image {
+  height: 100%;
+}
+
 .content {
   min-height: 50%;
+  height: 60%;
   width: 80%;
   margin-top: 3%;
   overflow-y: scroll;
@@ -66,42 +80,28 @@ export default {
   background: var(--scrollbar-color);
 }
 
-.inputs-wrapper {
-  width: 50%;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 19% 4%;
+.material-link {
+  text-decoration: none;
+  width: 20%;
+  position: fixed;
+  top: 88%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--background-button);
+  color: var(--background);
 }
 
-.inputs-wrapper > input {
+a {
+  width: 40%;
+  color: var(--desabled-color);
   font-size: 1.5rem;
-  text-align: center;
   padding: 20px;
   border: 2px solid var(--borders);
   border-radius: 20px;
   box-shadow: 3px 3px 9px var(--shaders);
-  outline: none;
-  transition: all 0.6s;
-}
-
-.inputs-wrapper > input:focus {
-  border: 2px solid var(--active-color);
-  box-shadow: 3px 3px 9px var(--active-color);
-}
-
-.input1 {
-  grid-area: 1 / 1 / 2 / 3;
-}
-
-.input2 {
-  grid-area: 2 / 1 / 3 / 2;
-}
-
-.input3 {
-  grid-area: 2 / 2 / 3 / 3;
 }
 </style>

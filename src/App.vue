@@ -4,7 +4,8 @@
   <main>
     <StepOne v-if="step === 1" />
     <StepTwo v-else-if="step === 2" />
-    <NavButtons :next="nextStep" :previus="previusStep" />
+    <StepThree v-else />
+    <NavButtons v-if="step <= 2" :next="nextStep" :previus="previusStep" />
   </main>
 </template>
 
@@ -13,6 +14,7 @@ import Header from "./components/Header";
 import ProgressBar from "./components/ProgressBar";
 import StepOne from "./components/StepOne";
 import StepTwo from "./components/StepTwo";
+import StepThree from "./components/StepThree";
 import NavButtons from "./components/NavButtons";
 
 export default {
@@ -22,6 +24,7 @@ export default {
     ProgressBar,
     StepOne,
     StepTwo,
+    StepThree,
     NavButtons,
   },
   methods: {

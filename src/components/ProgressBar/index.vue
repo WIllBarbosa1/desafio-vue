@@ -24,23 +24,23 @@ export default {
 };
 </script>
 
-<style>
-:root {
-  --percent: 33%;
+<style scoped>
+.bar {
+  --background-progress-bar-color: #ebebeb;
+  --progress-bar-color: #37a2a1;
 }
 
 .bar {
-  height: 1.5vh;
+  height: 1vh;
   width: 100%;
   border-radius: 10px;
-  background-color: #b8b8b8;
+  background-color: var(--background-progress-bar-color);
 }
 
 .progress {
   height: 100%;
-  /* width: var(--percent); */
   border-radius: 5px;
-  background-color: #31969c;
+  background-color: var(--progress-bar-color);
 }
 
 .stepUm {

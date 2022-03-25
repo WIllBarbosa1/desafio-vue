@@ -1,6 +1,8 @@
 <template>
-  <div class="buttons-navigation">
-    <button class="desable-button" @click="previusStep">Anterior</button>
+  <div class="container">
+    <button class="desable-button" @click="previusStep" disabled>
+      Anterior
+    </button>
     <button class="active-button" @click="nextStep">Próximo</button>
   </div>
 </template>
@@ -27,37 +29,51 @@ export default {
 };
 </script>
 
-<style>
-.buttons-navigation {
+<style scoped>
+.container {
+  --background: #ffffff;
+  --background-button: #ffffff;
+  --background-active-button: #37a2a1;
+  --background-active-color: #ffffff;
+  --shaders: #d7d7d7;
+  --borders: #d7d7d7;
+  --desabled-color: #d7d7d7;
+}
+
+.container {
   width: 40%;
   height: 15%;
   position: fixed;
-  top: 70%;
+  top: 80%;
   left: 0;
   right: 0;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: #fff;
-  border: 2px solid #b8b8b8;
+  background-color: var(--background);
+  border: 2px solid var(--borders);
   border-radius: 20px;
-  box-shadow: 3px 3px 9px #b8b8b8;
+  box-shadow: 3px 3px 9px var(--shaders);
 }
 
 button {
   width: 40%;
-  color: #b8b8b8;
   font-size: 1.5rem;
   padding: 20px;
-  border: 2px solid #b8b8b8;
+  border: 2px solid var(--borders);
   border-radius: 20px;
-  box-shadow: 3px 3px 9px #b8b8b8;
+  box-shadow: 3px 3px 9px var(--shaders);
+  background-color: var(--background-button);
 }
 
 .active-button {
-  background-color: #31969c;
-  color: #fff;
+  background-color: var(--background-active-button);
+  color: var(--background-active-color);
+}
+
+.desable-button {
+  color: var(--desabled-color);
 }
 
 .desable-button:hover {

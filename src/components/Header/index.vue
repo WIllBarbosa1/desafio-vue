@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <h2>Logo</h2>
+    <img class="logo" :src="logo" alt="Navit" />
     <div class="pipe" />
     <h2>
       <span>Passo {{ step }}:</span> {{ stepDescription }}
@@ -9,8 +9,15 @@
 </template>
 
 <script>
+import logo from "../../assets/images/Logo.png";
+
 export default {
   name: "Header",
+  data() {
+    return {
+      logo,
+    };
+  },
   props: {
     step: String,
     stepDescription: String,
@@ -20,15 +27,19 @@ export default {
 
 <style scoped>
 .header {
+  --background: #ffffff;
+  --pipe-color: #cecece;
+}
+
+.header {
   height: 7vh;
   width: 100vw;
   position: sticky;
   top: 0;
   padding: 0 20px;
-  color: #0a0a0a;
   display: flex;
   align-items: center;
-  background-color: #e0e0e0;
+  background-color: var(--background);
 }
 
 .header > h1 {
@@ -41,10 +52,15 @@ export default {
 }
 
 .pipe {
-  height: 70%;
+  height: 80%;
   width: 3px;
   margin: 0 10px;
   border-radius: 2px;
-  background-color: #b8b8b8;
+  background-color: var(--pipe-color);
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
 }
 </style>
