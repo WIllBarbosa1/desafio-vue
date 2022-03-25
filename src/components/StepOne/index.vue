@@ -7,15 +7,20 @@
         <input
           type="text"
           placeholder="Seu nome"
-          class="input1"
-          v-model="name"
+          class="input-name"
+          v-model="this.$store.state.collaborator.name"
         />
-        <input type="text" placeholder="Email" class="input2" v-model="email" />
+        <input
+          type="text"
+          placeholder="Email"
+          class="input-email"
+          v-model="this.$store.state.collaborator.email"
+        />
         <input
           type="text"
           placeholder="Telefone"
-          class="input3"
-          v-model="phone"
+          class="input-phone"
+          v-model="this.$store.state.collaborator.phone"
         />
       </form>
     </div>
@@ -41,14 +46,17 @@ export default {
   },
   data() {
     return {
-      name: "",
       email: "",
       phone: "",
     };
   },
   computed: {
     completeForm() {
-      return this.name && this.email && this.phone ? true : false;
+      return this.$store.state.collaborator.name &&
+        this.$store.state.collaborator.email &&
+        this.$store.state.collaborator.phone
+        ? true
+        : false;
     },
   },
 };
@@ -118,15 +126,15 @@ export default {
   box-shadow: 3px 3px 9px var(--active-color);
 }
 
-.input1 {
+.input-name {
   grid-area: 1 / 1 / 2 / 3;
 }
 
-.input2 {
+.input-email {
   grid-area: 2 / 1 / 3 / 2;
 }
 
-.input3 {
+.input-phone {
   grid-area: 2 / 2 / 3 / 3;
 }
 </style>

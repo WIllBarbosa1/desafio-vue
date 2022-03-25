@@ -29,6 +29,7 @@ export default {
   methods: {
     switchCss(index) {
       this.list[index].isActive = !this.list[index].isActive;
+      this.$store.state.techs.push({ name: this.list[index].name });
     },
   },
 };

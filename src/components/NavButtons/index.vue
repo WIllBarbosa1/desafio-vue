@@ -1,9 +1,13 @@
 <template>
   <div class="nav-container">
-    <button id="previusButton" :class="canGoPrevius" @click="previusStep">
+    <button
+      :class="canGoPrevius"
+      @click="previusStep"
+      :disabled="isPreviusDisabled"
+    >
       Anterior
     </button>
-    <button id="nextButton" :class="canGoNext" @click="nextStep">
+    <button :class="canGoNext" @click="nextStep" :disabled="isNextDisabled">
       Próximo
     </button>
   </div>
@@ -25,25 +29,12 @@ export default {
     canGoPrevius() {
       return this.canReturn ? "active-button" : "desable-button";
     },
-    // getProgressCss() {
-    //   if (this.canProgress) {
-    //     document.getElementById("nextButton").disabled = false;
-    //     // document.querySelector("#nextButton").removeAttribute("disabled");
-    //     return "active-button";
-    //   } else {
-    //     // document.querySelector("#nextButton").setAttribute("disabled", true);
-    //     // document.getElementById("nextButton").disabled = true;
-    //     return "desable-button";
-    //   }
-    // },
-    // getPreviusCss() {
-    //   if (this.canReturn) {
-    //     document.getElementById("previusButton").disabled = false;
-    //     return "active-button";
-    //   } else {
-    //     return "desable-button";
-    //   }
-    // },
+    isNextDisabled() {
+      return this.canProgress ? false : true;
+    },
+    isPreviusDisabled() {
+      return this.canReturn ? false : true;
+    },
   },
   methods: {
     nextStep() {
