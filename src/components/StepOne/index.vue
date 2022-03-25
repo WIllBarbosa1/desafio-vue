@@ -3,18 +3,54 @@
     <h2>Como conseguiremos falar com você depois?</h2>
     <span>Insira abaixo suas informações pessoais de contato</span>
     <div class="content">
-      <div class="inputs-wrapper">
-        <input type="text" placeholder="Seu nome" class="input1" />
-        <input type="text" placeholder="Email" class="input2" />
-        <input type="text" placeholder="Telefone" class="input3" />
-      </div>
+      <form class="inputs-wrapper">
+        <input
+          type="text"
+          placeholder="Seu nome"
+          class="input1"
+          v-model="name"
+        />
+        <input type="text" placeholder="Email" class="input2" v-model="email" />
+        <input
+          type="text"
+          placeholder="Telefone"
+          class="input3"
+          v-model="phone"
+        />
+      </form>
     </div>
   </div>
+  <NavButtons
+    :next="nextStep"
+    :previus="previusStep"
+    :canProgress="completeForm"
+  />
 </template>
 
 <script>
+import NavButtons from "../NavButtons";
+
 export default {
   name: "StepOne",
+  components: {
+    NavButtons,
+  },
+  props: {
+    nextStep: Function,
+    previusStep: Function,
+  },
+  data() {
+    return {
+      name: "",
+      email: "",
+      phone: "",
+    };
+  },
+  computed: {
+    completeForm() {
+      return this.name && this.email && this.phone ? true : false;
+    },
+  },
 };
 </script>
 
@@ -30,10 +66,10 @@ export default {
 }
 
 .container {
-  height: 91.5vh;
+  height: 92vh;
   width: 100%;
   font-size: 1.4rem;
-  margin-top: 8%;
+  padding-top: 5%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -53,17 +89,6 @@ export default {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-}
-
-.content::-webkit-scrollbar {
-  background: var(--scrollbar-background-color);
-  width: 0.5vw;
-  border-radius: 20px;
-}
-
-.content::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: var(--scrollbar-color);
 }
 
 .inputs-wrapper {

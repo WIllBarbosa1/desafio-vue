@@ -1,31 +1,33 @@
 <template>
   <Header :step="step" :stepDescription="steps[step - 1]" />
-  <ProgressBar :percent="step * 33" />
   <main>
-    <StepOne v-if="step === 1" />
-    <StepTwo v-else-if="step === 2" />
+    <StepOne
+      v-if="step === 1"
+      :nextStep="nextStep"
+      :previusStep="previusStep"
+    />
+    <StepTwo
+      v-else-if="step === 2"
+      :nextStep="nextStep"
+      :previusStep="previusStep"
+    />
     <StepThree v-else />
-    <NavButtons v-if="step <= 2" :next="nextStep" :previus="previusStep" />
   </main>
 </template>
 
 <script>
 import Header from "./components/Header";
-import ProgressBar from "./components/ProgressBar";
 import StepOne from "./components/StepOne";
 import StepTwo from "./components/StepTwo";
 import StepThree from "./components/StepThree";
-import NavButtons from "./components/NavButtons";
 
 export default {
   name: "App",
   components: {
     Header,
-    ProgressBar,
     StepOne,
     StepTwo,
     StepThree,
-    NavButtons,
   },
   methods: {
     nextStep() {
@@ -57,5 +59,16 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+
+.content::-webkit-scrollbar {
+  background: var(--scrollbar-background-color);
+  width: 0.5vw;
+  border-radius: 20px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--scrollbar-color);
 }
 </style>

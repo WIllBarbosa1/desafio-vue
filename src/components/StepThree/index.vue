@@ -10,7 +10,7 @@
       >Você pode acessar nosso contéudo exclusivo para novos integrantes
       clicando no botão abaico!</span
     >
-    <a class="material-link" href="#" target="_blank">Acessar material!</a>
+    <a class="material-link" href="#">Acessar material!</a>
   </div>
 </template>
 
@@ -39,10 +39,10 @@ export default {
 }
 
 .container {
-  height: 91.5vh;
+  height: 92vh;
   width: 100%;
   font-size: 1.4rem;
-  padding: 50px 0;
+  padding-top: 5%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -67,17 +67,6 @@ export default {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-}
-
-.content::-webkit-scrollbar {
-  background: var(--scrollbar-background-color);
-  width: 0.5vw;
-  border-radius: 20px;
-}
-
-.content::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: var(--scrollbar-color);
 }
 
 .material-link {

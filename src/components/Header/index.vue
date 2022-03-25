@@ -6,10 +6,12 @@
       <span>Passo {{ step }}:</span> {{ stepDescription }}
     </h2>
   </header>
+  <ProgressBar :percent="step * 33" />
 </template>
 
 <script>
 import logo from "../../assets/images/Logo.png";
+import ProgressBar from "../ProgressBar";
 
 export default {
   name: "Header",
@@ -18,8 +20,11 @@ export default {
       logo,
     };
   },
+  components: {
+    ProgressBar,
+  },
   props: {
-    step: String,
+    step: Number,
     stepDescription: String,
   },
 };

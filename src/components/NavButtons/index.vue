@@ -1,9 +1,11 @@
 <template>
-  <div class="container">
-    <button class="desable-button" @click="previusStep" disabled>
+  <div class="nav-container">
+    <button id="previusButton" :class="canGoPrevius" @click="previusStep">
       Anterior
     </button>
-    <button class="active-button" @click="nextStep">Próximo</button>
+    <button id="nextButton" :class="canGoNext" @click="nextStep">
+      Próximo
+    </button>
   </div>
 </template>
 
@@ -13,6 +15,35 @@ export default {
   props: {
     next: Function,
     previus: Function,
+    canProgress: Boolean,
+    canReturn: Boolean,
+  },
+  computed: {
+    canGoNext() {
+      return this.canProgress ? "active-button" : "desable-button";
+    },
+    canGoPrevius() {
+      return this.canReturn ? "active-button" : "desable-button";
+    },
+    // getProgressCss() {
+    //   if (this.canProgress) {
+    //     document.getElementById("nextButton").disabled = false;
+    //     // document.querySelector("#nextButton").removeAttribute("disabled");
+    //     return "active-button";
+    //   } else {
+    //     // document.querySelector("#nextButton").setAttribute("disabled", true);
+    //     // document.getElementById("nextButton").disabled = true;
+    //     return "desable-button";
+    //   }
+    // },
+    // getPreviusCss() {
+    //   if (this.canReturn) {
+    //     document.getElementById("previusButton").disabled = false;
+    //     return "active-button";
+    //   } else {
+    //     return "desable-button";
+    //   }
+    // },
   },
   methods: {
     nextStep() {
@@ -30,7 +61,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.nav-container {
   --background: #ffffff;
   --background-button: #ffffff;
   --background-active-button: #37a2a1;
@@ -40,9 +71,10 @@ export default {
   --desabled-color: #d7d7d7;
 }
 
-.container {
+.nav-container {
   width: 40%;
   height: 15%;
+  z-index: 1;
   position: fixed;
   top: 80%;
   left: 0;
