@@ -2,8 +2,8 @@
   <div class="nav-container">
     <button
       :class="canGoPrevius"
-      @click="previusStep"
       :disabled="isPreviusDisabled"
+      @click="previusStep"
     >
       Anterior
     </button>

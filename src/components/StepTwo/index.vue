@@ -2,7 +2,6 @@
   <div class="container">
     <h2>Que tecnologias você conhece?</h2>
     <span>Insira abaixo suas informações pessoais de contato</span>
-    <span>Telefone: {{ this.$store.state.techs }}</span>
     <div class="content">
       <TecList />
     </div>

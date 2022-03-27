@@ -8,19 +8,19 @@
           type="text"
           placeholder="Seu nome"
           class="input-name"
-          v-model="this.$store.state.collaborator.name"
+          v-model="this.$store.state.userInformation.collaborator.name"
         />
         <input
           type="text"
           placeholder="Email"
           class="input-email"
-          v-model="this.$store.state.collaborator.email"
+          v-model="this.$store.state.userInformation.collaborator.email"
         />
         <input
           type="text"
           placeholder="Telefone"
           class="input-phone"
-          v-model="this.$store.state.collaborator.phone"
+          v-model="this.$store.state.userInformation.collaborator.tel"
         />
       </form>
     </div>
@@ -52,9 +52,9 @@ export default {
   },
   computed: {
     completeForm() {
-      return this.$store.state.collaborator.name &&
-        this.$store.state.collaborator.email &&
-        this.$store.state.collaborator.phone
+      return this.$store.state.userInformation.collaborator.name &&
+        this.$store.state.userInformation.collaborator.email &&
+        this.$store.state.userInformation.collaborator.tel
         ? true
         : false;
     },

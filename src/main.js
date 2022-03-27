@@ -6,14 +6,14 @@ import App from './App.vue'
 const store = createStore({
     state() {
         return {
-            name: '',
-            collaborator: {
-                name: '',
-                email: '',
-                tel: '',
+            userInformation: {
+                collaborator: {
+                    name: '',
+                    email: '',
+                    tel: '',
+                },
+                techs: []
             },
-            techs: []
-
         }
     },
     mutations: {

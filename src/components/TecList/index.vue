@@ -28,8 +28,21 @@ export default {
   },
   methods: {
     switchCss(index) {
+      let indexOfElement = this.$store.state.userInformation.techs.findIndex(
+        (element) => {
+          return element.name === this.list[index].name;
+        }
+      );
+
       this.list[index].isActive = !this.list[index].isActive;
-      this.$store.state.techs.push({ name: this.list[index].name });
+
+      if (indexOfElement < 0) {
+        this.$store.state.userInformation.techs.push({
+          name: this.list[index].name,
+        });
+      } else {
+        this.$store.state.userInformation.techs.splice(indexOfElement, 1);
+      }
     },
   },
 };
