@@ -13,13 +13,11 @@
         <input
           type="text"
           placeholder="Email"
-          class="input-email"
           v-model="this.$store.state.userInformation.collaborator.email"
         />
         <input
           type="text"
           placeholder="Telefone"
-          class="input-phone"
           v-model="this.$store.state.userInformation.collaborator.tel"
         />
       </form>
@@ -45,16 +43,24 @@ export default {
     previusStep: Function,
   },
   data() {
-    return {
-      email: "",
-      phone: "",
-    };
+    return {};
   },
   computed: {
     completeForm() {
-      return this.$store.state.userInformation.collaborator.name &&
+      let regPhone = new RegExp("^[0-9]*$");
+      let regName = new RegExp("[a-zA-Zs]*$");
+
+      let isOnlyNumbers =
+        regPhone.test(this.$store.state.userInformation.collaborator.tel) &&
+        this.$store.state.userInformation.collaborator.tel.length >= 8;
+
+      let isOnlyLetters =
+        regName.test(this.$store.state.userInformation.collaborator.name) &&
+        this.$store.state.userInformation.collaborator.name !== "";
+
+      return isOnlyLetters &&
         this.$store.state.userInformation.collaborator.email &&
-        this.$store.state.userInformation.collaborator.tel
+        isOnlyNumbers
         ? true
         : false;
     },
@@ -110,6 +116,10 @@ export default {
   align-items: center;
 }
 
+.inputs-wrapper :first-child {
+  grid-area: 1 / 1 / 2 / 3;
+}
+
 .inputs-wrapper > input {
   font-size: 1.5rem;
   text-align: center;
@@ -124,17 +134,5 @@ export default {
 .inputs-wrapper > input:focus {
   border: 2px solid var(--active-color);
   box-shadow: 3px 3px 9px var(--active-color);
-}
-
-.input-name {
-  grid-area: 1 / 1 / 2 / 3;
-}
-
-.input-email {
-  grid-area: 2 / 1 / 3 / 2;
-}
-
-.input-phone {
-  grid-area: 2 / 2 / 3 / 3;
 }
 </style>
