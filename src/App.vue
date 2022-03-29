@@ -1,16 +1,8 @@
 <template>
-  <Header :step="step" :stepDescription="steps[step - 1]" />
+  <Header />
   <main>
-    <StepOne
-      v-if="step === 1"
-      :nextStep="nextStep"
-      :previusStep="previusStep"
-    />
-    <StepTwo
-      v-else-if="step === 2"
-      :nextStep="nextStep"
-      :previusStep="previusStep"
-    />
+    <StepOne v-if="getStep === 1" />
+    <StepTwo v-else-if="getStep === 2" />
     <StepThree v-else />
   </main>
 </template>
@@ -29,19 +21,10 @@ export default {
     StepTwo,
     StepThree,
   },
-  methods: {
-    nextStep() {
-      this.step++;
+  computed: {
+    getStep() {
+      return this.$store.getters.getStep;
     },
-    previusStep() {
-      this.step--;
-    },
-  },
-  data() {
-    return {
-      steps: ["Informações pessoais", "Alinhamento técnico", "Finalizado"],
-      step: 1,
-    };
   },
 };
 </script>

@@ -7,14 +7,11 @@
 <script>
 export default {
   name: "ProgressBar",
-  props: {
-    percent: Number,
-  },
   computed: {
     getPercent() {
-      if (this.percent <= 33) {
+      if (this.$store.getters.getStep === 1) {
         return "progress stepUm";
-      } else if (this.percent <= 66) {
+      } else if (this.$store.getters.getStep === 2) {
         return "progress stepDois";
       } else {
         return "progress stepTres";
@@ -45,7 +42,6 @@ export default {
 
 .stepUm {
   width: 33%;
-  --percent: 66%;
 }
 
 .stepDois {

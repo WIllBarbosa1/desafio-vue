@@ -11,23 +11,19 @@
           v-model="this.$store.state.userInformation.collaborator.name"
         />
         <input
-          type="text"
+          type="email"
           placeholder="Email"
           v-model="this.$store.state.userInformation.collaborator.email"
         />
         <input
-          type="text"
+          type="tel"
           placeholder="Telefone"
           v-model="this.$store.state.userInformation.collaborator.tel"
         />
       </form>
     </div>
   </div>
-  <NavButtons
-    :next="nextStep"
-    :previus="previusStep"
-    :canProgress="completeForm"
-  />
+  <NavButtons :canProgress="completeForm" />
 </template>
 
 <script>
@@ -38,29 +34,20 @@ export default {
   components: {
     NavButtons,
   },
-  props: {
-    nextStep: Function,
-    previusStep: Function,
-  },
   data() {
     return {};
   },
   computed: {
     completeForm() {
-      let regPhone = new RegExp("^[0-9]*$");
-      let regName = new RegExp("[a-zA-Zs]*$");
+      // let regPhone = new RegExp("^[0-9]*$");
 
-      let isOnlyNumbers =
-        regPhone.test(this.$store.state.userInformation.collaborator.tel) &&
-        this.$store.state.userInformation.collaborator.tel.length >= 8;
+      // let isOnlyNumbers =
+      //   regPhone.test(this.$store.state.userInformation.collaborator.tel) &&
+      //   this.$store.state.userInformation.collaborator.tel.length >= 8;
 
-      let isOnlyLetters =
-        regName.test(this.$store.state.userInformation.collaborator.name) &&
-        this.$store.state.userInformation.collaborator.name !== "";
-
-      return isOnlyLetters &&
+      return this.$store.state.userInformation.collaborator.name &&
         this.$store.state.userInformation.collaborator.email &&
-        isOnlyNumbers
+        this.$store.state.userInformation.collaborator.tel
         ? true
         : false;
     },

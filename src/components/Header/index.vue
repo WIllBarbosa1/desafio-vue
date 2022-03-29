@@ -3,10 +3,11 @@
     <img class="logo" :src="logo" alt="Navit" />
     <div class="pipe" />
     <h2>
-      <span>Passo {{ step }}:</span> {{ stepDescription }}
+      <span>Passo {{ getStep }}:</span>
+      {{ getStepDescription }}
     </h2>
   </header>
-  <ProgressBar :percent="step * 33" />
+  <ProgressBar />
 </template>
 
 <script>
@@ -23,9 +24,13 @@ export default {
   components: {
     ProgressBar,
   },
-  props: {
-    step: Number,
-    stepDescription: String,
+  computed: {
+    getStepDescription() {
+      return this.$store.getters.getStepDescription;
+    },
+    getStep() {
+      return this.$store.getters.getStep;
+    },
   },
 };
 </script>

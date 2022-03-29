@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div>Informações: {{ this.$store.state.userInformation }}</div>
+    <!-- <div>Informações: {{ this.$store.getters.getUserInfo }}</div> -->
     <h2>Parabéns! Todas as informações foram enviadas para nosso time!</h2>
     <span>Agora você esta pronto para a próxima etapa, sucesso!</span>
     <div class="content">
@@ -25,11 +25,9 @@ export default {
       finish,
     };
   },
-  // created: {
-  //   info() {
-  //     // alert(this.$store.state.techs);
-  //   },
-  // },
+  created() {
+    console.log("User info: ", this.$store.getters.getUserInfo);
+  },
 };
 </script>
 

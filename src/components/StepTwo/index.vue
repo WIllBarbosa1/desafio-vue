@@ -6,12 +6,7 @@
       <TecList />
     </div>
   </div>
-  <NavButtons
-    :next="nextStep"
-    :previus="previusStep"
-    canProgress="true"
-    canReturn="true"
-  />
+  <NavButtons canProgress="true" canReturn="true" />
 </template>
 
 <script>
@@ -20,16 +15,9 @@ import NavButtons from "../NavButtons";
 
 export default {
   name: "StepTwo",
-  data() {
-    return {};
-  },
   components: {
     TecList,
     NavButtons,
-  },
-  props: {
-    nextStep: Function,
-    previusStep: Function,
   },
 };
 </script>

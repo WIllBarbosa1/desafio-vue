@@ -3,11 +3,15 @@
     <button
       :class="canGoPrevius"
       :disabled="isPreviusDisabled"
-      @click="previusStep"
+      @click="this.$store.commit('previusStep')"
     >
       Anterior
     </button>
-    <button :class="canGoNext" @click="nextStep" :disabled="isNextDisabled">
+    <button
+      :class="canGoNext"
+      :disabled="isNextDisabled"
+      @click="this.$store.commit('nextStep')"
+    >
       Próximo
     </button>
   </div>
@@ -17,8 +21,6 @@
 export default {
   name: "NavButtons",
   props: {
-    next: Function,
-    previus: Function,
     canProgress: Boolean,
     canReturn: Boolean,
   },
@@ -34,18 +36,6 @@ export default {
     },
     isPreviusDisabled() {
       return this.canReturn ? false : true;
-    },
-  },
-  methods: {
-    nextStep() {
-      if (this.next) {
-        this.next();
-      }
-    },
-    previusStep() {
-      if (this.previus) {
-        this.previus();
-      }
     },
   },
 };
