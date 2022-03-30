@@ -11,7 +11,12 @@
       >Você pode acessar nosso contéudo exclusivo para novos integrantes
       clicando no botão abaico!</span
     >
-    <a class="material-link" href="#">Acessar material!</a>
+    <a
+      class="material-link"
+      href="https://www.instagram.com/navitdigital/"
+      target="_blank"
+      >Acessar material!</a
+    >
   </div>
 </template>
 
