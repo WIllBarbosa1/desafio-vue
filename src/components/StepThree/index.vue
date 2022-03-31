@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <!-- <div>Informações: {{ this.$store.getters.getUserInfo }}</div> -->
     <h2>Parabéns! Todas as informações foram enviadas para nosso time!</h2>
     <span>Agora você esta pronto para a próxima etapa, sucesso!</span>
     <div class="content">
@@ -48,18 +47,29 @@ export default {
 }
 
 .container {
-  height: 92vh;
+  /* height: 92vh; */
+  height: 100%;
   width: 100%;
-  font-size: 1.4rem;
-  padding-top: 5%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
+  /* font-size: 1.4rem; */
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 11vh;
+  /* padding-top: 5%; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: flex-start; */
+  /* flex-direction: column; */
   background-color: var(--background);
+}
+.container > h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 20px;
 }
 
 .container > span {
+  margin-top: 4px;
+  font-size: 0.75rem;
   color: var(--desabled-color);
 }
 
@@ -69,37 +79,37 @@ export default {
 
 .content {
   min-height: 50%;
-  height: 60%;
+  /* height: 60%; */
   width: 80%;
+  margin: 0 auto;
   margin-top: 3%;
   overflow-y: scroll;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
 }
 
 .material-link {
-  text-decoration: none;
-  width: 20%;
+  z-index: 1;
+  width: 159px;
   position: fixed;
-  top: 88%;
+  /* top: 88%; */
+  bottom: 26px;
   left: 0;
   right: 0;
   margin: 0 auto;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--background-button);
   color: var(--background);
-}
-
-a {
-  width: 40%;
-  color: var(--desabled-color);
-  font-size: 1.5rem;
-  padding: 20px;
-  border: 2px solid var(--borders);
-  border-radius: 20px;
-  box-shadow: 3px 3px 9px var(--shaders);
+  border: 1px solid var(--borders);
+  border-radius: 12px;
+  box-shadow: 0px 0px 9px 3px var(--shaders);
+  background-color: var(--background-button);
 }
 </style>

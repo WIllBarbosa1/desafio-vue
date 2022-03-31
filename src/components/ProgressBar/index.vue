@@ -1,5 +1,6 @@
 <template>
   <div class="bar">
+    <!-- tag progress -->
     <div :class="getPercent"></div>
   </div>
 </template>
@@ -28,7 +29,8 @@ export default {
 }
 
 .bar {
-  height: 1vh;
+  /* height: 1.4vh; */
+  height: 7px;
   width: 100%;
   border-radius: 10px;
   background-color: var(--background-progress-bar-color);

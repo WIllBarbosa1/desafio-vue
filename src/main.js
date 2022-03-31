@@ -44,4 +44,5 @@ const store = createStore({
 
 const app = createApp(App)
 
+//Inport fonts por aqui
 app.use(store).mount('#app');

@@ -34,28 +34,39 @@ export default {
 }
 
 .container {
-  height: 92vh;
-  width: 100%;
-  font-size: 1.4rem;
-  padding-top: 5%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
+  /* height: 92vh; */
+  height: 100%;
+  width: 80%;
+  /* font-size: 1.4rem; */
+  padding-top: 11vh;
+  margin: 0 auto;
+  text-align: center;
+  /* padding-top: 5%; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* flex-direction: column; */
   background-color: var(--background);
 }
 
+.container > h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 20px;
+}
+
 .container > span {
+  margin-top: 4px;
+  font-size: 0.75rem;
   color: var(--desabled-color);
 }
 
 .content {
   min-height: 50%;
-  width: 80%;
+  width: 100%;
   margin-top: 3%;
   overflow-y: scroll;
   display: flex;
-  align-items: flex-start;
+  /* align-items: flex-start; */
   justify-content: center;
 }
 </style>

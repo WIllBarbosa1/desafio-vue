@@ -58,25 +58,28 @@ export default {
 
 .list {
   height: 100%;
-  width: 90%;
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   list-style: none;
 }
 
 .list > li {
-  max-height: 100%;
+  /* max-height: 100%; */
+  /* width: 260px; */
   width: 30%;
-  padding: 5px 10px;
+  height: 70px;
+  padding: 15px;
+  margin: 10px;
   text-align: left;
   background-color: var(--background);
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  border: 3px solid var(--borders);
-  border-radius: 20px;
+  border: 1px solid var(--borders);
+  border-radius: 12px;
 }
 
 li:hover {
@@ -84,16 +87,17 @@ li:hover {
 }
 
 li.active {
-  border: 3px solid var(--active-color);
+  border: 1px solid var(--active-color);
 }
 
 .logo {
-  width: 20%;
+  height: 40px;
+  width: 35px;
 }
 
 .info-wrapper {
   margin-left: 10px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-transform: capitalize;
   text-align: left;
   display: flex;
@@ -101,7 +105,7 @@ li.active {
 }
 
 .info-wrapper > span {
-  font-size: 1rem;
+  font-size: 0.75rem;
   color: var(--desabled-color);
 }
 

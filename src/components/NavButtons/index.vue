@@ -12,6 +12,7 @@
       :disabled="isNextDisabled"
       @click="this.$store.commit('nextStep')"
     >
+      <!-- @click="$emit('click-Button', 'clicou')" -->
       Próximo
     </button>
   </div>
@@ -53,14 +54,18 @@ export default {
 }
 
 .nav-container {
-  width: 40%;
-  height: 15%;
+  /* width: 40%; */
+  width: 334px;
+  /* height: 15%; */
+  height: 69px;
   z-index: 1;
   position: fixed;
-  top: 80%;
+  /* top: 80%; */
+  bottom: 26px;
   left: 0;
   right: 0;
   margin: 0 auto;
+  /* padding: 15px; */
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -71,11 +76,11 @@ export default {
 }
 
 button {
-  width: 40%;
-  font-size: 1.5rem;
-  padding: 20px;
+  width: 124px;
+  font-size: 0.75rem;
+  padding: 12px 35px;
   border: 2px solid var(--borders);
-  border-radius: 20px;
+  border-radius: 12px;
   box-shadow: 3px 3px 9px var(--shaders);
   background-color: var(--background-button);
 }

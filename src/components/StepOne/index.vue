@@ -23,7 +23,7 @@
       </form>
     </div>
   </div>
-  <NavButtons :canProgress="completeForm" />
+  <NavButtons :canProgress="completeForm" @click-button="teste" />
 </template>
 
 <script>
@@ -36,6 +36,11 @@ export default {
   },
   data() {
     return {};
+  },
+  methods: {
+    teste() {
+      console.log("teste");
+    },
   },
   computed: {
     completeForm() {
@@ -67,10 +72,12 @@ export default {
 }
 
 .container {
-  height: 92vh;
-  width: 100%;
-  font-size: 1.4rem;
-  padding-top: 5%;
+  /* height: 90vh; */
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 11vh;
+  /* padding-top: 55px; */
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -78,13 +85,21 @@ export default {
   background-color: var(--background);
 }
 
+.container > h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 20px;
+}
+
 .container > span {
+  margin-top: 4px;
+  font-size: 0.75rem;
   color: var(--desabled-color);
 }
 
 .content {
   min-height: 50%;
-  width: 80%;
+  width: 100%;
   margin-top: 3%;
   overflow-y: scroll;
   display: flex;
@@ -93,14 +108,16 @@ export default {
 }
 
 .inputs-wrapper {
-  width: 50%;
-  padding: 20px;
+  width: 380px;
+  /* width: 37vw; */
+  /* padding: 47px 0; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 19% 4%;
   justify-content: center;
   align-items: center;
+  /* background-color: cornflowerblue; */
 }
 
 .inputs-wrapper :first-child {
@@ -108,18 +125,18 @@ export default {
 }
 
 .inputs-wrapper > input {
-  font-size: 1.5rem;
+  font-size: 0.75rem;
   text-align: center;
-  padding: 20px;
+  padding: 12px 0;
   border: 2px solid var(--borders);
-  border-radius: 20px;
-  box-shadow: 3px 3px 9px var(--shaders);
+  border-radius: 12px;
+  box-shadow: 0px 2px 9px var(--shaders);
   outline: none;
   transition: all 0.6s;
 }
 
 .inputs-wrapper > input:focus {
   border: 2px solid var(--active-color);
-  box-shadow: 3px 3px 9px var(--active-color);
+  box-shadow: 0px 2px 9px var(--active-color);
 }
 </style>

@@ -2,10 +2,10 @@
   <header class="header">
     <img class="logo" :src="logo" alt="Navit" />
     <div class="pipe" />
-    <h2>
-      <span>Passo {{ getStep }}:</span>
+    <h1>
+      <span>Passo {{ getStep }}: </span>
       {{ getStepDescription }}
-    </h2>
+    </h1>
   </header>
   <ProgressBar />
 </template>
@@ -42,7 +42,8 @@ export default {
 }
 
 .header {
-  height: 7vh;
+  /* height: 12.8vh; */
+  height: 64px;
   width: 100vw;
   position: sticky;
   top: 0;
@@ -53,24 +54,24 @@ export default {
 }
 
 .header > h1 {
-  font-size: 1.5rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 20px;
 }
 
 .header span {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .pipe {
-  height: 80%;
-  width: 3px;
-  margin: 0 10px;
-  border-radius: 2px;
-  background-color: var(--pipe-color);
+  height: 37px;
+  width: 0;
+  margin: 0 14px;
+  border: 1px solid var(--pipe-color);
 }
 
 .logo {
-  height: 50px;
-  width: 50px;
+  height: 32px;
+  width: 32px;
 }
 </style>
