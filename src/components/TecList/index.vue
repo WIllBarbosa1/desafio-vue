@@ -50,13 +50,6 @@ export default {
 
 <style scoped>
 .list {
-  --active-color: #37a1a2;
-  --desabled-color: #d7d7d7;
-  --background: #ffffff;
-  --borders: #d7d7d7;
-}
-
-.list {
   height: 100%;
   width: 80%;
   display: flex;
@@ -67,18 +60,16 @@ export default {
 }
 
 .list > li {
-  /* max-height: 100%; */
-  /* width: 260px; */
   width: 30%;
   height: 70px;
   padding: 15px;
   margin: 10px;
   text-align: left;
-  background-color: var(--background);
+  background-color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  border: 1px solid var(--borders);
+  border: 1px solid var(--gray);
   border-radius: 12px;
 }
 
@@ -87,7 +78,7 @@ li:hover {
 }
 
 li.active {
-  border: 1px solid var(--active-color);
+  border: 1px solid var(--secondary);
 }
 
 .logo {
@@ -106,11 +97,11 @@ li.active {
 
 .info-wrapper > span {
   font-size: 0.75rem;
-  color: var(--desabled-color);
+  color: var(--gray);
 }
 
 .checked {
   margin-left: auto;
-  color: var(--active-color);
+  color: var(--secondary);
 }
 </style>

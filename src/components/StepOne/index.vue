@@ -62,27 +62,15 @@ export default {
 
 <style scoped>
 .container {
-  --active-color: #37a1a2;
-  --desabled-color: #d7d7d7;
-  --background: #ffffff;
-  --scrollbar-color: #37a2a1;
-  --scrollbar-background-color: #ebebeb;
-  --shaders: #d7d7d7;
-  --borders: #d7d7d7;
-}
-
-.container {
-  /* height: 90vh; */
   height: 100%;
   width: 80%;
   margin: 0 auto;
   padding-top: 11vh;
-  /* padding-top: 55px; */
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  background-color: var(--background);
+  background-color: var(--primary);
 }
 
 .container > h2 {
@@ -94,7 +82,7 @@ export default {
 .container > span {
   margin-top: 4px;
   font-size: 0.75rem;
-  color: var(--desabled-color);
+  color: var(--gray);
 }
 
 .content {
@@ -109,15 +97,12 @@ export default {
 
 .inputs-wrapper {
   width: 380px;
-  /* width: 37vw; */
-  /* padding: 47px 0; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 19% 4%;
   justify-content: center;
   align-items: center;
-  /* background-color: cornflowerblue; */
 }
 
 .inputs-wrapper :first-child {
@@ -128,15 +113,15 @@ export default {
   font-size: 0.75rem;
   text-align: center;
   padding: 12px 0;
-  border: 2px solid var(--borders);
+  border: 2px solid var(--gray);
   border-radius: 12px;
-  box-shadow: 0px 2px 9px var(--shaders);
+  box-shadow: 0px 2px 9px var(--gray);
   outline: none;
   transition: all 0.6s;
 }
 
 .inputs-wrapper > input:focus {
-  border: 2px solid var(--active-color);
-  box-shadow: 0px 2px 9px var(--active-color);
+  border: 2px solid var(--secondary);
+  box-shadow: 0px 2px 9px var(--secondary);
 }
 </style>

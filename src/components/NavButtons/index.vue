@@ -44,54 +44,40 @@ export default {
 
 <style scoped>
 .nav-container {
-  --background: #ffffff;
-  --background-button: #ffffff;
-  --background-active-button: #37a2a1;
-  --background-active-color: #ffffff;
-  --shaders: #d7d7d7;
-  --borders: #d7d7d7;
-  --desabled-color: #d7d7d7;
-}
-
-.nav-container {
-  /* width: 40%; */
   width: 334px;
-  /* height: 15%; */
   height: 69px;
   z-index: 1;
   position: fixed;
-  /* top: 80%; */
   bottom: 26px;
   left: 0;
   right: 0;
   margin: 0 auto;
-  /* padding: 15px; */
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: var(--background);
-  border: 2px solid var(--borders);
+  background-color: var(--primary);
+  border: 2px solid var(--gray);
   border-radius: 20px;
-  box-shadow: 3px 3px 9px var(--shaders);
+  box-shadow: 3px 3px 9px var(--gray);
 }
 
 button {
   width: 124px;
   font-size: 0.75rem;
   padding: 12px 35px;
-  border: 2px solid var(--borders);
+  border: 2px solid var(--gray);
   border-radius: 12px;
-  box-shadow: 3px 3px 9px var(--shaders);
-  background-color: var(--background-button);
+  box-shadow: 3px 3px 9px var(--gray);
+  background-color: var(--primary);
 }
 
 .active-button {
-  background-color: var(--background-active-button);
-  color: var(--background-active-color);
+  background-color: var(--secondary);
+  color: var(--primary);
 }
 
 .desable-button {
-  color: var(--desabled-color);
+  color: var(--gray);
 }
 
 .desable-button:hover {

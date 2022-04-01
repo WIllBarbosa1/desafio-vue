@@ -37,29 +37,12 @@ export default {
 
 <style scoped>
 .container {
-  --desabled-color: #d7d7d7;
-  --background: #ffffff;
-  --background-button: #37a2a1;
-  --scrollbar-color: #37a2a1;
-  --scrollbar-background-color: #ebebeb;
-  --shaders: #d7d7d7;
-  --borders: #d7d7d7;
-}
-
-.container {
-  /* height: 92vh; */
   height: 100%;
   width: 100%;
-  /* font-size: 1.4rem; */
   margin: 0 auto;
   text-align: center;
   padding-top: 11vh;
-  /* padding-top: 5%; */
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: flex-start; */
-  /* flex-direction: column; */
-  background-color: var(--background);
+  background-color: var(--primary);
 }
 .container > h2 {
   font-size: 1rem;
@@ -70,7 +53,7 @@ export default {
 .container > span {
   margin-top: 4px;
   font-size: 0.75rem;
-  color: var(--desabled-color);
+  color: var(--gray);
 }
 
 .image {
@@ -79,7 +62,6 @@ export default {
 
 .content {
   min-height: 50%;
-  /* height: 60%; */
   width: 80%;
   margin: 0 auto;
   margin-top: 3%;
@@ -93,7 +75,6 @@ export default {
   z-index: 1;
   width: 159px;
   position: fixed;
-  /* top: 88%; */
   bottom: 26px;
   left: 0;
   right: 0;
@@ -106,10 +87,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--background);
-  border: 1px solid var(--borders);
+  color: var(--primary);
+  border: 1px solid var(--gray);
   border-radius: 12px;
-  box-shadow: 0px 0px 9px 3px var(--shaders);
-  background-color: var(--background-button);
+  box-shadow: 0px 0px 9px 3px var(--gray);
+  background-color: var(--secondary);
 }
 </style>

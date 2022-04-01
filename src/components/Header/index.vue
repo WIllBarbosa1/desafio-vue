@@ -37,12 +37,6 @@ export default {
 
 <style scoped>
 .header {
-  --background: #ffffff;
-  --pipe-color: #cecece;
-}
-
-.header {
-  /* height: 12.8vh; */
   height: 64px;
   width: 100vw;
   position: sticky;
@@ -50,7 +44,7 @@ export default {
   padding: 0 20px;
   display: flex;
   align-items: center;
-  background-color: var(--background);
+  background-color: var(--primary);
 }
 
 .header > h1 {
@@ -67,7 +61,7 @@ export default {
   height: 37px;
   width: 0;
   margin: 0 14px;
-  border: 1px solid var(--pipe-color);
+  border: 1px solid var(--gray);
 }
 
 .logo {

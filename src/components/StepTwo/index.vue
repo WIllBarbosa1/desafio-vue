@@ -24,28 +24,12 @@ export default {
 
 <style scoped>
 .container {
-  --active-color: #37a1a2;
-  --desabled-color: #d7d7d7;
-  --background: #ffffff;
-  --scrollbar-color: #37a2a1;
-  --scrollbar-background-color: #ebebeb;
-  --shaders: #d7d7d7;
-  --borders: #d7d7d7;
-}
-
-.container {
-  /* height: 92vh; */
   height: 100%;
   width: 80%;
-  /* font-size: 1.4rem; */
   padding-top: 11vh;
   margin: 0 auto;
   text-align: center;
-  /* padding-top: 5%; */
-  /* display: flex; */
-  /* align-items: center; */
-  /* flex-direction: column; */
-  background-color: var(--background);
+  background-color: var(--primary);
 }
 
 .container > h2 {
@@ -57,7 +41,7 @@ export default {
 .container > span {
   margin-top: 4px;
   font-size: 0.75rem;
-  color: var(--desabled-color);
+  color: var(--gray);
 }
 
 .content {
@@ -66,7 +50,6 @@ export default {
   margin-top: 3%;
   overflow-y: scroll;
   display: flex;
-  /* align-items: flex-start; */
   justify-content: center;
 }
 </style>

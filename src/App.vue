@@ -1,10 +1,12 @@
 <template>
-  <Header />
-  <main>
-    <StepOne v-if="getStep === 1" />
-    <StepTwo v-else-if="getStep === 2" />
-    <StepThree v-else />
-  </main>
+  <div class="page-wrapper">
+    <Header />
+    <main class="page-content">
+      <StepOne v-if="getStep === 1" />
+      <StepTwo v-else-if="getStep === 2" />
+      <StepThree v-else />
+    </main>
+  </div>
 </template>
 
 <script>
@@ -32,6 +34,12 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
 
+:root {
+  --primary: #ffffff;
+  --secondary: #37a1a2;
+  --gray: #d7d7d7;
+}
+
 /* 1rem = 16px */
 * {
   margin: 0;
@@ -40,18 +48,24 @@ export default {
   font-family: "Montserrat", sans-serif;
 }
 
-main {
-  height: 90vh;
-}
-
 *::-webkit-scrollbar {
-  background: var(--scrollbar-background-color);
+  background: var(--gray);
   width: 0.5vw;
   border-radius: 20px;
 }
 
 *::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: var(--scrollbar-color);
+  background: var(--secondary);
+}
+
+.page-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+}
+
+.page-content {
+  flex-grow: 1;
 }
 </style>

@@ -24,22 +24,16 @@ export default {
 
 <style scoped>
 .bar {
-  --background-progress-bar-color: #ebebeb;
-  --progress-bar-color: #37a2a1;
-}
-
-.bar {
-  /* height: 1.4vh; */
   height: 7px;
   width: 100%;
   border-radius: 10px;
-  background-color: var(--background-progress-bar-color);
+  background-color: var(--gray);
 }
 
 .progress {
   height: 100%;
   border-radius: 5px;
-  background-color: var(--progress-bar-color);
+  background-color: var(--secondary);
 }
 
 .stepUm {
