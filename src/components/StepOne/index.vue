@@ -2,8 +2,9 @@
   <div class="container">
     <h2>Como conseguiremos falar com você depois?</h2>
     <span>Insira abaixo suas informações pessoais de contato</span>
+    <!-- <h3>Erros: {{ this.errors }}</h3> -->
     <div class="content">
-      <form class="inputs-wrapper">
+      <form class="inputs-wrapper" @submit.prevent="checkForm">
         <input
           type="text"
           placeholder="Seu nome"
@@ -20,6 +21,7 @@
           placeholder="Telefone"
           v-model="this.$store.state.userInformation.collaborator.tel"
         />
+        <!-- <input type="submit" /> -->
       </form>
     </div>
   </div>
@@ -35,11 +37,33 @@ export default {
     NavButtons,
   },
   data() {
-    return {};
+    return {
+      errors: [],
+    };
   },
   methods: {
-    teste() {
+    teste() {},
+    checkForm() {
       console.log("teste");
+      this.errors = [];
+
+      if (
+        this.$store.state.userInformation.collaborator.name &&
+        this.$store.state.userInformation.collaborator.email &&
+        this.$store.state.userInformation.collaborator.tel
+      ) {
+        return true;
+      }
+
+      if (!this.$store.state.userInformation.collaborator.name) {
+        this.errors.push("Nome invalido!");
+      }
+      if (!this.$store.state.userInformation.collaborator.email) {
+        this.errors.push("Email invalido!");
+      }
+      if (!this.$store.state.userInformation.collaborator.tel) {
+        this.errors.push("Tel invalido!");
+      }
     },
   },
   computed: {

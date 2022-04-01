@@ -44,6 +44,7 @@ export default {
 
 <style scoped>
 .nav-container {
+  /* width: 40%; */
   width: 334px;
   height: 69px;
   z-index: 1;

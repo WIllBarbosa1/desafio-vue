@@ -40,22 +40,22 @@ export default {
   --gray: #d7d7d7;
 }
 
-/* 1rem = 16px */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 16px;
   font-family: "Montserrat", sans-serif;
 }
 
 *::-webkit-scrollbar {
   background: var(--gray);
-  width: 0.5vw;
+  width: 5px;
   border-radius: 20px;
 }
 
 *::-webkit-scrollbar-thumb {
-  border-radius: 10px;
+  border-radius: 30px;
   background: var(--secondary);
 }
 
