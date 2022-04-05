@@ -6,7 +6,7 @@
       <TecList />
     </div>
   </div>
-  <NavButtons canProgress="true" canReturn="true" />
+  <NavButtons canProgress="true" canReturn="true" @next-button="next" />
 </template>
 
 <script>
@@ -18,6 +18,11 @@ export default {
   components: {
     TecList,
     NavButtons,
+  },
+  methods: {
+    next() {
+      this.$store.commit("nextStep");
+    },
   },
 };
 </script>

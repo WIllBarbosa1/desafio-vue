@@ -9,23 +9,14 @@
           type="text"
           placeholder="Seu nome"
           class="input-name"
-          v-model="this.$store.state.userInformation.collaborator.name"
+          v-model="name"
         />
-        <input
-          type="email"
-          placeholder="Email"
-          v-model="this.$store.state.userInformation.collaborator.email"
-        />
-        <input
-          type="tel"
-          placeholder="Telefone"
-          v-model="this.$store.state.userInformation.collaborator.tel"
-        />
-        <!-- <input type="submit" /> -->
+        <input type="email" placeholder="Email" v-model="email" />
+        <input type="tel" placeholder="Telefone" v-model="tel" />
       </form>
     </div>
   </div>
-  <NavButtons :canProgress="completeForm" @click-button="teste" />
+  <NavButtons :canProgress="completeForm" @next-button="next" />
 </template>
 
 <script>
@@ -39,10 +30,20 @@ export default {
   data() {
     return {
       errors: [],
+      name: "",
+      tel: "",
+      email: "",
     };
   },
   methods: {
-    teste() {},
+    next() {
+      this.$store.commit("addUserInformation", {
+        name: this.name,
+        email: this.email,
+        tel: this.tel,
+      });
+      this.$store.commit("nextStep");
+    },
     checkForm() {
       console.log("teste");
       this.errors = [];
@@ -68,18 +69,14 @@ export default {
   },
   computed: {
     completeForm() {
-      // let regPhone = new RegExp("^[0-9]*$");
-
-      // let isOnlyNumbers =
-      //   regPhone.test(this.$store.state.userInformation.collaborator.tel) &&
-      //   this.$store.state.userInformation.collaborator.tel.length >= 8;
-
-      return this.$store.state.userInformation.collaborator.name &&
-        this.$store.state.userInformation.collaborator.email &&
-        this.$store.state.userInformation.collaborator.tel
-        ? true
-        : false;
+      return this.name && this.email && this.tel ? true : false;
     },
+  },
+  created() {
+    const userInfo = this.$store.getters.getCollaboratorInfo;
+    this.name = userInfo.name;
+    this.email = userInfo.email;
+    this.tel = userInfo.tel;
   },
 };
 </script>

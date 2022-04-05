@@ -28,21 +28,20 @@ export default {
   },
   methods: {
     switchCss(index) {
-      let indexOfElement = this.$store.state.userInformation.techs.findIndex(
-        (element) => {
-          return element.name === this.list[index].name;
-        }
-      );
+      let techList = this.$store.getters.getTechs;
+      let indexOfElement = techList.findIndex((element) => {
+        return element.name === this.list[index].name;
+      });
 
       this.list[index].isActive = !this.list[index].isActive;
 
       if (indexOfElement < 0) {
-        this.$store.state.userInformation.techs.push({
-          name: this.list[index].name,
-        });
+        techList.push({ name: this.list[index].name });
       } else {
-        this.$store.state.userInformation.techs.splice(indexOfElement, 1);
+        techList.splice(indexOfElement, 1);
       }
+
+      this.$store.commit("updateTech", techList);
     },
   },
 };

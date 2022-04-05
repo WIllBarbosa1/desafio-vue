@@ -1,7 +1,7 @@
 <template>
-  <div class="page-wrapper">
+  <div id="page-wrapper">
     <Header />
-    <main class="page-content">
+    <main id="page-content">
       <StepOne v-if="getStep === 1" />
       <StepTwo v-else-if="getStep === 2" />
       <StepThree v-else />
@@ -59,13 +59,13 @@ export default {
   background: var(--secondary);
 }
 
-.page-wrapper {
+#page-wrapper {
   height: 100vh;
   display: flex;
   flex-flow: column;
 }
 
-.page-content {
+#page-content {
   flex-grow: 1;
 }
 </style>

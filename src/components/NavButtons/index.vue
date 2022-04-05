@@ -10,9 +10,8 @@
     <button
       :class="canGoNext"
       :disabled="isNextDisabled"
-      @click="this.$store.commit('nextStep')"
+      @click="$emit('next-button', 'clicou')"
     >
-      <!-- @click="$emit('click-Button', 'clicou')" -->
       Próximo
     </button>
   </div>
@@ -44,7 +43,6 @@ export default {
 
 <style scoped>
 .nav-container {
-  /* width: 40%; */
   width: 334px;
   height: 69px;
   z-index: 1;

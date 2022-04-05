@@ -16,8 +16,13 @@ export default createStore({
         }
     },
     mutations: {
-        addTech(state, tech) {
-            state.techs.push(tech);
+        addUserInformation(state, payload) {
+            state.userInformation.collaborator.name = payload.name;
+            state.userInformation.collaborator.email = payload.email;
+            state.userInformation.collaborator.tel = payload.tel;
+        },
+        updateTech(state, payload) {
+            state.userInformation.techs = payload;
         },
         nextStep(state) {
             state.step++;
@@ -35,6 +40,13 @@ export default createStore({
         },
         getUserInfo(state) {
             return state.userInformation;
+        },
+        getCollaboratorInfo(state) {
+            return state.userInformation.collaborator;
+        },
+        getTechs(state) {
+            return state.userInformation.techs;
         }
+
     }
 });
