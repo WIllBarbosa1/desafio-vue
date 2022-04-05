@@ -2,10 +2,12 @@
   <div class="container">
     <h2>Como conseguiremos falar com você depois?</h2>
     <span>Insira abaixo suas informações pessoais de contato</span>
-    <div class="errors" v-if="hasError">
-      <span v-for="(item, index) in errors" :key="'errors' + index">{{
-        item
-      }}</span>
+    <div class="modal" v-if="isOpen" @click="closeModal">
+      <div class="modal-content">
+        <span v-for="(item, index) in errors" :key="'errors' + index">{{
+          item
+        }}</span>
+      </div>
     </div>
     <div class="content">
       <form class="inputs-wrapper" @submit.prevent="checkForm">
@@ -20,7 +22,6 @@
       </form>
     </div>
   </div>
-  <!-- <NavButtons :canProgress="completeForm" @next-button="next" /> -->
   <NavButtons :canProgress="completeForm" @next-button="checkForm" />
 </template>
 
@@ -38,6 +39,7 @@ export default {
       name: "",
       tel: "",
       email: "",
+      isOpen: false,
     };
   },
   methods: {
@@ -73,7 +75,12 @@ export default {
           tel: this.tel,
         });
         this.$store.commit("nextStep");
+      } else {
+        this.isOpen = true;
       }
+    },
+    closeModal() {
+      this.isOpen = false;
     },
   },
   computed: {
@@ -158,16 +165,35 @@ export default {
   box-shadow: 0px 2px 9px var(--secondary);
 }
 
-.errors {
-  padding-top: 5px;
+.modal {
+  z-index: 2;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
-.errors > span {
-  font-size: 0.75rem;
+.modal-content {
+  width: 30%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--primary);
+  border: 4px solid var(--secondary);
+  border-radius: 15px;
+}
+
+.modal-content > span {
+  font-size: 1.5rem;
   font-weight: bold;
-  color: red;
+  color: var(--secondary);
 }
 </style>
