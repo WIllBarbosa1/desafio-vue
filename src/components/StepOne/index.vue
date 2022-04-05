@@ -2,7 +2,11 @@
   <div class="container">
     <h2>Como conseguiremos falar com você depois?</h2>
     <span>Insira abaixo suas informações pessoais de contato</span>
-    <!-- <h3>Erros: {{ this.errors }}</h3> -->
+    <div class="errors" v-if="hasError">
+      <span v-for="(item, index) in errors" :key="'errors' + index">{{
+        item
+      }}</span>
+    </div>
     <div class="content">
       <form class="inputs-wrapper" @submit.prevent="checkForm">
         <input
@@ -16,7 +20,8 @@
       </form>
     </div>
   </div>
-  <NavButtons :canProgress="completeForm" @next-button="next" />
+  <!-- <NavButtons :canProgress="completeForm" @next-button="next" /> -->
+  <NavButtons :canProgress="completeForm" @next-button="checkForm" />
 </template>
 
 <script>
@@ -45,31 +50,38 @@ export default {
       this.$store.commit("nextStep");
     },
     checkForm() {
-      console.log("teste");
+      const onlyNumbers = /^[0-9]*$/;
+      const onlyLetters = /^[a-zA-Z\s]*$/g;
+      const isEmail = /\S+@\S+\.\S+/;
+
       this.errors = [];
 
-      if (
-        this.$store.state.userInformation.collaborator.name &&
-        this.$store.state.userInformation.collaborator.email &&
-        this.$store.state.userInformation.collaborator.tel
-      ) {
-        return true;
-      }
-
-      if (!this.$store.state.userInformation.collaborator.name) {
+      if (!this.name || !onlyLetters.test(this.name)) {
         this.errors.push("Nome invalido!");
       }
-      if (!this.$store.state.userInformation.collaborator.email) {
+      if (!this.email || !isEmail.test(this.email)) {
         this.errors.push("Email invalido!");
       }
-      if (!this.$store.state.userInformation.collaborator.tel) {
-        this.errors.push("Tel invalido!");
+      if (!this.tel || this.tel.length < 8 || !onlyNumbers.test(this.tel)) {
+        this.errors.push("Telefone invalido!");
+      }
+
+      if (this.errors.length === 0) {
+        this.$store.commit("addUserInformation", {
+          name: this.name,
+          email: this.email,
+          tel: this.tel,
+        });
+        this.$store.commit("nextStep");
       }
     },
   },
   computed: {
     completeForm() {
       return this.name && this.email && this.tel ? true : false;
+    },
+    hasError() {
+      return this.errors.length > 0;
     },
   },
   created() {
@@ -144,5 +156,18 @@ export default {
 .inputs-wrapper > input:focus {
   border: 2px solid var(--secondary);
   box-shadow: 0px 2px 9px var(--secondary);
+}
+
+.errors {
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.errors > span {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: red;
 }
 </style>
