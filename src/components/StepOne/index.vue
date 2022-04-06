@@ -4,9 +4,12 @@
     <span>Insira abaixo suas informações pessoais de contato</span>
     <div class="modal" v-if="isOpen" @click="closeModal">
       <div class="modal-content">
-        <span v-for="(item, index) in errors" :key="'errors' + index">{{
-          item
-        }}</span>
+        <h2>Informações invalidas</h2>
+        <div class="modal-errors">
+          <span v-for="(item, index) in errors" :key="'errors' + index">{{
+            item
+          }}</span>
+        </div>
       </div>
     </div>
     <div class="content">
@@ -43,14 +46,6 @@ export default {
     };
   },
   methods: {
-    next() {
-      this.$store.commit("addUserInformation", {
-        name: this.name,
-        email: this.email,
-        tel: this.tel,
-      });
-      this.$store.commit("nextStep");
-    },
     checkForm() {
       const onlyNumbers = /^[0-9]*$/;
       const onlyLetters = /^[a-zA-Z\s]*$/g;
@@ -59,13 +54,13 @@ export default {
       this.errors = [];
 
       if (!this.name || !onlyLetters.test(this.name)) {
-        this.errors.push("Nome invalido!");
+        this.errors.push("Nome");
       }
       if (!this.email || !isEmail.test(this.email)) {
-        this.errors.push("Email invalido!");
+        this.errors.push("Email");
       }
       if (!this.tel || this.tel.length < 8 || !onlyNumbers.test(this.tel)) {
-        this.errors.push("Telefone invalido!");
+        this.errors.push("Telefone");
       }
 
       if (this.errors.length === 0) {
@@ -183,7 +178,7 @@ export default {
   height: 30%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
   gap: 10px;
   background-color: var(--primary);
@@ -191,9 +186,13 @@ export default {
   border-radius: 15px;
 }
 
-.modal-content > span {
+.modal-content > h2 {
   font-size: 1.5rem;
+}
+
+.modal-errors > span {
+  display: flex;
+  justify-content: center;
   font-weight: bold;
-  color: var(--secondary);
 }
 </style>
