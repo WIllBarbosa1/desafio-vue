@@ -15,22 +15,6 @@ export default createStore({
             steps: ["Informações pessoais", "Alinhamento técnico", "Finalizado"],
         }
     },
-    mutations: {
-        addUserInformation(state, payload) {
-            state.userInformation.collaborator.name = payload.name;
-            state.userInformation.collaborator.email = payload.email;
-            state.userInformation.collaborator.tel = payload.tel;
-        },
-        updateTech(state, payload) {
-            state.userInformation.techs = payload;
-        },
-        nextStep(state) {
-            state.step++;
-        },
-        previusStep(state) {
-            state.step--;
-        },
-    },
     getters: {
         getStepDescription(state) {
             return state.steps[state.step - 1];
@@ -47,6 +31,35 @@ export default createStore({
         getTechs(state) {
             return state.userInformation.techs;
         }
-
+    },
+    mutations: {
+        previusStep(state) {
+            state.step--;
+        },
+        nextStep(state) {
+            state.step++;
+        },
+        addUserInformation(state, payload) {
+            state.userInformation.collaborator.name = payload.name;
+            state.userInformation.collaborator.email = payload.email;
+            state.userInformation.collaborator.tel = payload.tel;
+        },
+        updateTech(state, payload) {
+            state.userInformation.techs = payload;
+        },
+    },
+    actions: {
+        previusStep({ commit }) {
+            commit('previusStep');
+        },
+        nextStep({ commit }) {
+            commit('nextStep');
+        },
+        addUserInformation({ commit }, information) {
+            commit('addUserInformation', information);
+        },
+        updateTech({ commit }, information) {
+            commit('updateTech', information);
+        },
     }
 });

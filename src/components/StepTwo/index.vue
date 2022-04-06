@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import TecList from "../TecList";
 import NavButtons from "../NavButtons";
 
@@ -20,8 +21,10 @@ export default {
     NavButtons,
   },
   methods: {
+    ...mapActions(["nextStep"]),
+
     next() {
-      this.$store.commit("nextStep");
+      this.nextStep();
     },
   },
 };

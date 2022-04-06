@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import finish from "../../assets/images/Finish.png";
 
 export default {
@@ -29,8 +30,15 @@ export default {
       finish,
     };
   },
+  methods: {
+    ...mapGetters(["getUserInfo"]),
+
+    getUser() {
+      return this.getUserInfo();
+    },
+  },
   created() {
-    console.log("User info: ", this.$store.getters.getUserInfo);
+    console.log("User info: ", this.getUser());
   },
 };
 </script>

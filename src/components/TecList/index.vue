@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 import mockList from "../../assets/mocks/tecList";
 
 export default {
@@ -27,8 +28,11 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["updateTech"]),
+    ...mapGetters(["getTechs"]),
+
     switchCss(index) {
-      let techList = this.$store.getters.getTechs;
+      let techList = this.getTechs();
       let indexOfElement = techList.findIndex((element) => {
         return element.name === this.list[index].name;
       });
@@ -41,7 +45,7 @@ export default {
         techList.splice(indexOfElement, 1);
       }
 
-      this.$store.commit("updateTech", techList);
+      this.updateTech(techList);
     },
   },
 };

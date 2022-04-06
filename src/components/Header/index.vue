@@ -3,13 +3,14 @@
     <img class="logo" :src="logo" alt="Navit" />
     <div class="pipe" />
     <h1>
-      <span>Passo {{ getStep }}: </span>{{ getStepDescription }}
+      <span>Passo {{ computedStep }}: </span>{{ computedStepDescription }}
     </h1>
   </header>
-  <progress class="progress" :value="getProgress" max="100" />
+  <progress class="progress" :value="computedProgress" max="100" />
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import logo from "../../assets/images/Logo.png";
 
 export default {
@@ -19,16 +20,17 @@ export default {
       logo,
     };
   },
-  components: {},
   computed: {
-    getStepDescription() {
-      return this.$store.getters.getStepDescription;
+    ...mapGetters(["getStepDescription", "getProgress", "getStep"]),
+
+    computedStepDescription() {
+      return this.getStepDescription;
     },
-    getStep() {
-      return this.$store.getters.getStep;
+    computedStep() {
+      return this.getStep;
     },
-    getProgress() {
-      return Math.ceil(this.$store.getters.getStep * 33.3);
+    computedProgress() {
+      return Math.ceil(this.getStep * 33.3);
     },
   },
 };

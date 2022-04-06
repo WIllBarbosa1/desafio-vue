@@ -2,14 +2,15 @@
   <div id="page-wrapper">
     <Header />
     <main id="page-content">
-      <StepOne v-if="getStep === 1" />
-      <StepTwo v-else-if="getStep === 2" />
+      <StepOne v-if="getPageStep === 1" />
+      <StepTwo v-else-if="getPageStep === 2" />
       <StepThree v-else />
     </main>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import Header from "./components/Header";
 import StepOne from "./components/StepOne";
 import StepTwo from "./components/StepTwo";
@@ -24,8 +25,10 @@ export default {
     StepThree,
   },
   computed: {
-    getStep() {
-      return this.$store.getters.getStep;
+    ...mapGetters(["getStep"]),
+
+    getPageStep() {
+      return this.getStep;
     },
   },
 };
@@ -57,6 +60,10 @@ export default {
 *::-webkit-scrollbar-thumb {
   border-radius: 30px;
   background: var(--secondary);
+}
+
+*::-webkit-progress-value {
+  transition: width 1s;
 }
 
 #page-wrapper {

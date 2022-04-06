@@ -3,7 +3,7 @@
     <button
       :class="canGoPrevius"
       :disabled="isPreviusDisabled"
-      @click="this.$store.commit('previusStep')"
+      @click="previusStep"
     >
       Anterior
     </button>
@@ -18,11 +18,16 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "NavButtons",
   props: {
     canProgress: Boolean,
     canReturn: Boolean,
+  },
+  methods: {
+    ...mapActions(["previusStep"]),
   },
   computed: {
     canGoNext() {

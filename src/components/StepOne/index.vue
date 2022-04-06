@@ -13,15 +13,26 @@
       </div>
     </div>
     <div class="content">
-      <form class="inputs-wrapper" @submit.prevent="checkForm">
+      <form class="inputs-wrapper">
         <input
           type="text"
           placeholder="Seu nome"
           class="input-name"
           v-model="name"
+          v-on:keyup.enter="checkForm"
         />
-        <input type="email" placeholder="Email" v-model="email" />
-        <input type="tel" placeholder="Telefone" v-model="tel" />
+        <input
+          type="email"
+          placeholder="Email"
+          v-model="email"
+          v-on:keyup.enter="checkForm"
+        />
+        <input
+          type="tel"
+          placeholder="Telefone"
+          v-model="tel"
+          v-on:keyup.enter="checkForm"
+        />
       </form>
     </div>
   </div>
@@ -29,6 +40,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 import NavButtons from "../NavButtons";
 
 export default {
@@ -46,6 +58,9 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["nextStep", "addUserInformation"]),
+    ...mapGetters(["getCollaboratorInfo"]),
+
     checkForm() {
       const onlyNumbers = /^[0-9]*$/;
       const onlyLetters = /^[a-zA-Z\s]*$/g;
@@ -64,12 +79,12 @@ export default {
       }
 
       if (this.errors.length === 0) {
-        this.$store.commit("addUserInformation", {
+        this.addUserInformation({
           name: this.name,
           email: this.email,
           tel: this.tel,
         });
-        this.$store.commit("nextStep");
+        this.nextStep();
       } else {
         this.isOpen = true;
       }
@@ -87,7 +102,7 @@ export default {
     },
   },
   created() {
-    const userInfo = this.$store.getters.getCollaboratorInfo;
+    const userInfo = this.getCollaboratorInfo();
     this.name = userInfo.name;
     this.email = userInfo.email;
     this.tel = userInfo.tel;
@@ -142,6 +157,7 @@ export default {
 
 .inputs-wrapper :first-child {
   grid-area: 1 / 1 / 2 / 3;
+  margin-top: 5px;
 }
 
 .inputs-wrapper > input {
@@ -150,14 +166,12 @@ export default {
   padding: 12px 0;
   border: 2px solid var(--gray);
   border-radius: 12px;
-  box-shadow: 0px 2px 9px var(--gray);
-  outline: none;
+  outline: 0px solid var(--gray);
   transition: all 0.6s;
 }
 
 .inputs-wrapper > input:focus {
-  border: 2px solid var(--secondary);
-  box-shadow: 0px 2px 9px var(--secondary);
+  outline: 2px solid var(--secondary);
 }
 
 .modal {
