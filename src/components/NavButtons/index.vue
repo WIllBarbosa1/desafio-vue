@@ -10,7 +10,7 @@
     <button
       :class="canGoNext"
       :disabled="isNextDisabled"
-      @click="$emit('next-button')"
+      @click="$emit('nextButton')"
     >
       Próximo
     </button>
