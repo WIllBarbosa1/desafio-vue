@@ -6,7 +6,7 @@
       <TecList />
     </div>
   </div>
-  <NavButtons canProgress="true" canReturn="true" @next-button="next" />
+  <NavButtons :canProgress="true" :canReturn="true" @next-button="next" />
 </template>
 
 <script>
