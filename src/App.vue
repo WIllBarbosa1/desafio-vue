@@ -62,10 +62,6 @@ export default {
   background: var(--secondary);
 }
 
-*::-webkit-progress-value {
-  transition: width 1s;
-}
-
 #page-wrapper {
   height: 100vh;
   display: flex;

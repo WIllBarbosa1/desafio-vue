@@ -86,4 +86,8 @@ export default {
   border-radius: 10px;
   background-color: var(--secondary);
 }
+
+.progress::-webkit-progress-value {
+  transition: width 1s;
+}
 </style>
